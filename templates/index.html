@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Datos</title>
+  <!-- Bootstrap 5 minificado CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">Noticias El Mundo (SQLite)</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Título</th>
+                <th>Enlace</th>
+                <th>Fecha</th>
+                <th>Autor</th>
+                <th>Sección</th>
+                <th>Contiene 'ayuntamiento'</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for n in noticias %}
+            <tr>
+                <td>{{ n[0] }}</td>
+                <td><a href="{{ n[1] }}" target="_blank">Enlace</a></td>
+                <td>{{ n[2] }}</td>
+                <td>{{ n[3] }}</td>
+                <td>{{ n[4] }}</td>
+                <td>{% if n[5] %}Sí{% else %}No{% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+  
+</body>
+</html>
+
+
+
+
